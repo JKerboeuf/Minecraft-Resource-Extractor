@@ -21,20 +21,15 @@ Useful for **resource pack** creators, these files are the most annoying to trea
 
 ## Setup
 
-- Open a Linux terminal, copy-paste the following command then press enter :
-
-```Shell
-git clone https://github.com/JKerboeuf/Minecraft-Resource-Extractor.git && cd Minecraft-Resource-Extractor
-```
-
+- Download the latest release [here](/releases/latest) and put the `mre.sh` file you just downloaded anywhere you want on your computer.
 - Install the required programs if you dont already have them (details below about the requirements) :
 
 ```Shell
 sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq
 ```
 
+- Open a Linux terminal and navigate to the directory where you put the `mre.sh` file
 - Now you can use it ! See the [Usage section](#usage) below
-
 
 ### Requirements
 
