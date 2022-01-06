@@ -1,5 +1,4 @@
 #!/bin/bash
-# /mnt/c/Users/Julien/AppData/Roaming/.minecraft
 
 GREEN='\033[1;32m'
 CYAN='\033[1;36m'
@@ -51,7 +50,7 @@ jar -xvf "$JARPATH" assets | awk -v var="$FILENB" 'BEGIN {ORS=" "} {print NR"/"v
 echo -e "\r${CYAN}Extracting data from $MCVER.jar...${MAGENTA}"
 FILENB=$(jar -tf "$JARPATH" data | wc -l)
 jar -xvf "$JARPATH" data | awk -v var="$FILENB" 'BEGIN {ORS=" "} {print NR"/"var" files extracted\r"}'
-#rm -f assets/.mcassetsroot data/.mcassetsroot assets/minecraft/gpu_warnlist.json ../../$MRETPM/$MCVER.jar
+rm -f assets/.mcassetsroot data/.mcassetsroot assets/minecraft/gpu_warnlist.json ../../$MRETPM/$MCVER.jar
 cd ../..
 echo -e "\r${GREEN}Content from $MCVER.jar succesfully extracted to $MREOUT/$MCVER.jar !"
 
@@ -80,5 +79,5 @@ while read LINE; do
 		ASSOUT=$(echo "$LINE" | cut -d \" -f 2)
 	fi
 done < "$MRETPM/indexes"
-echo -e "\r${GREEN}$ASSVER assets succesfully extracted to $MREOUT/$ASSVER-assets !"
+echo -e "\r${GREEN}$ASSVER assets succesfully extracted to $MREOUT/$ASSVER-assets !${WHITE}"
 rm -rf "$MRETPM"
