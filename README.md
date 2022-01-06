@@ -1,6 +1,6 @@
-# Minecraft Ressource Extractor
+# Minecraft Resource Extractor
 
-The Minecraft Ressource Extractor (or *MRE* for short) is a small tool for data packs and ressource packs creators.  
+The Minecraft Resource Extractor (or *MRE* for short) is a small tool for data packs and resource packs creators.  
 With this tool you can easily extract all the textures, sounds, and data files (achievements, crafting recipes and others) from any minecraft.jar version you have installed.
 
 ## Extraction
@@ -9,7 +9,7 @@ There is 3 types of files you can extract using this tool :
 
 ### version.jar -> assets
 
-Useful for **ressource pack** creators, this part contains all **textures** and **models** from the game.
+Useful for **resource pack** creators, this part contains all **textures** and **models** from the game.
 
 ### version.jar -> data
 
@@ -17,14 +17,14 @@ Useful for **data pack** creators, this part contains all data files (`json` fil
 
 ### Assets
 
-Useful for **ressource pack** creators, these files are the most annoying to treat by hand as their names are "encoded", they mostly are **sound**, **music** and **language** files but they also include the **Programmer Art ressource pack** and some more "default" files I'll let you explore.
+Useful for **resource pack** creators, these files are the most annoying to treat by hand as their names are "encoded", they mostly are **sound**, **music** and **language** files but they also include the **Programmer Art resource pack** and some more "default" files I'll let you explore.
 
 ## Setup
 
 - Open a Linux terminal, copy-paste the following command then press enter :
 
 ```Shell
-git clone https://github.com/JKerboeuf/Minecraft-Ressource-Extractor.git && cd Minecraft-Ressource-Extractor
+git clone https://github.com/JKerboeuf/Minecraft-Resource-Extractor.git && cd Minecraft-Resource-Extractor
 ```
 
 - Install the required programs if you dont already have them (details below about the requirements) :

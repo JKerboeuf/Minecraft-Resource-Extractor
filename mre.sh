@@ -14,7 +14,7 @@ BANNER='
  ██      ██    ██   ██    ███████
 
 ██████████████████████████████████
-█ Minecraft Ressource Extractor  █
+█  Minecraft Resource Extractor  █
 █ Version 1.0 by Julien Kerboeuf █
 ██████████████████████████████████
 '
@@ -98,4 +98,4 @@ echo -e "\r${GREEN}$ASSETS_VERSION assets succesfully extracted to $MRE_OUTPUT_D
 echo -en "${CYAN}Cleaning up temporary files... "
 rm -rf "$MRE_TMP_DIR"
 echo -e "${GREEN}Done !"
-echo -e "${GREEN}Thank you for using the Minecraft Ressource Extractor made by Julien Kerboeuf,\nif you would like to support my work you can donate to me on paypal at ${MAGENTA}https://paypal.me/jkerboeuf ${WHITE}"
+echo -e "${GREEN}Thank you for using the Minecraft Resource Extractor made by Julien Kerboeuf,\nif you would like to support my work you can donate to me on paypal at ${MAGENTA}https://paypal.me/jkerboeuf ${WHITE}"
