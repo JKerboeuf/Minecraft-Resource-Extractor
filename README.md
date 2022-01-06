@@ -21,7 +21,7 @@ Useful for **resource pack** creators, these files are the most annoying to trea
 
 ## Setup
 
-- Download the latest release [here](/releases/latest) and put the `mre.sh` file you just downloaded anywhere you want on your computer.
+- Download the latest release [here](https://github.com/JKerboeuf/Minecraft-Resource-Extractor/releases/latest) and put the `mre.sh` file you just downloaded anywhere you want on your computer.
 - Open a Linux terminal and navigate to the directory where you put the `mre.sh` file
 - Install the required programs if you dont already have them (details below about the requirements) :
 
