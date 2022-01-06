@@ -22,13 +22,13 @@ Useful for **resource pack** creators, these files are the most annoying to trea
 ## Setup
 
 - Download the latest release [here](/releases/latest) and put the `mre.sh` file you just downloaded anywhere you want on your computer.
+- Open a Linux terminal and navigate to the directory where you put the `mre.sh` file
 - Install the required programs if you dont already have them (details below about the requirements) :
 
 ```Shell
 sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq
 ```
 
-- Open a Linux terminal and navigate to the directory where you put the `mre.sh` file
 - Now you can use it ! See the [Usage section](#usage) below
 
 ### Requirements
