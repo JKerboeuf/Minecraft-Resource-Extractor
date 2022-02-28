@@ -1,7 +1,7 @@
 # Minecraft Resource Extractor
 
 The Minecraft Resource Extractor (or *MRE* for short) is a small tool for data packs and resource packs creators.  
-With this tool you can easily extract all the textures, sounds, and data files (achievements, crafting recipes and others) from any minecraft.jar version you have installed.
+With this tool, you can easily extract all the textures, sounds, and data files (achievements, crafting recipes and others) from any minecraft.jar version you have installed.
 
 ## Extraction
 
@@ -33,11 +33,11 @@ sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq
 
 ### Requirements
 
-This Shell script is meant to be used within a command terminal on a Linux OS, it **will** work on Windows using the Linux sub-system (aka WSL).
+This Shell script is meant to be used within a command terminal on a Linux OS, it **will work** on Windows using the **Linux sub-system** (aka WSL).
 
-You will need **Java** (`openjdk`) installed, any version that can extract content from a .jar file with a `jar -x [file]`.
+You will need **Java** (`openjdk`) installed, any version that can extract content from a .jar file with a `jar -x [file]` command.
 
-Finally you need `jq`, a command line json parser that the script uses.
+Finally you need **jq**, a command line json parser.
 
 ## Usage
 
