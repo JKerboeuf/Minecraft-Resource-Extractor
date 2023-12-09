@@ -75,7 +75,7 @@
 			this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblTitre.Location = new System.Drawing.Point(118, 12);
 			this.lblTitre.Name = "lblTitre";
-			this.lblTitre.Size = new System.Drawing.Size(253, 20);
+			this.lblTitre.Size = new System.Drawing.Size(244, 20);
 			this.lblTitre.TabIndex = 4;
 			this.lblTitre.Text = "Minecraft Resource Extractor";
 			// 
@@ -97,7 +97,7 @@
 			this.lblVersion.Name = "lblVersion";
 			this.lblVersion.Size = new System.Drawing.Size(60, 13);
 			this.lblVersion.TabIndex = 6;
-			this.lblVersion.Text = "Version 2.0";
+			this.lblVersion.Text = "Version 2.1";
 			// 
 			// lblCreator
 			// 

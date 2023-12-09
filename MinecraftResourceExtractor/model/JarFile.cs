@@ -26,7 +26,7 @@ namespace mre.model
 			Folders = new List<string>();
 			Process javaProcess = new Process();
 			javaProcess.StartInfo.FileName = javaPath;
-			javaProcess.StartInfo.Arguments = "-tf " + Path;
+			javaProcess.StartInfo.Arguments = "-tf \"" + Path + "\"";
 			javaProcess.StartInfo.UseShellExecute = false;
 			javaProcess.StartInfo.RedirectStandardOutput = true;
 			javaProcess.StartInfo.CreateNoWindow = true;
@@ -63,7 +63,7 @@ namespace mre.model
 			Directory.CreateDirectory(settings.MreDirPath + "\\mre-output\\" + Name);
 			Process javaProcess = new Process();
 			javaProcess.StartInfo.FileName = settings.JavaPath;
-			javaProcess.StartInfo.Arguments = "-xvf " + Path + " " + folder;
+			javaProcess.StartInfo.Arguments = "-xvf \"" + Path + "\" \"" + folder + "\"";
 			javaProcess.StartInfo.UseShellExecute = false;
 			javaProcess.StartInfo.CreateNoWindow = true;
 			javaProcess.StartInfo.WorkingDirectory = settings.MreDirPath + "\\mre-output\\" + Name;
