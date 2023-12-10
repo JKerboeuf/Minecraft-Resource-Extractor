@@ -1,3 +1,5 @@
+![MRE Banner](https://raw.githubusercontent.com/JKerboeuf/Minecraft-Resource-Extractor/main/mre%20banner%20full%20512.webp)
+
 # Minecraft Resource Extractor
 
 The Minecraft Resource Extractor (or *MRE* for short) is a small tool for data packs and resource packs creators.  
