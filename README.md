@@ -61,3 +61,7 @@ Useful for **data pack** creators, this part contains all data files (`json` fil
 ### Assets
 
 Useful for **resource pack** creators, these files are the most annoying to treat by hand as their names are "encoded", they mostly are **sound**, **music** and **language** files but they also include the **Programmer Art resource pack** and some more "default" files I'll let you explore.
+
+## Screenshot
+
+![screenshot of MRE](https://i.imgur.com/1pqQNQH.png)
