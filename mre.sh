@@ -15,7 +15,7 @@ BANNER='
 
 ██████████████████████████████████
 █  Minecraft Resource Extractor  █
-█ Version 2.1 by Julien Kerboeuf █
+█ Version 2.3 by Julien Kerboeuf █
 ██████████████████████████████████
 '
 MRE_DIR=$(pwd)
