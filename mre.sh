@@ -15,7 +15,7 @@ BANNER='
 
 ██████████████████████████████████
 █  Minecraft Resource Extractor  █
-█ Version 2.0 by Julien Kerboeuf █
+█ Version 2.1 by Julien Kerboeuf █
 ██████████████████████████████████
 '
 MRE_DIR=$(pwd)
@@ -29,27 +29,27 @@ function msg() {
 }
 
 function checkArgs() {
-	if [ ! "${1}" -eq 1 ]; then
-		msg "${RED}Please provide the path to your .minecraft directory and nothing else.\n${YELLOW}Usage : ./mre.sh [.minecraft path]\n"
+	if [ "${#}" -lt 1 ] || [ "${#}" -gt 2 ]; then
+		msg "${RED}Please provide the path to your .minecraft directory and optionally the path to the Java 'jar' binary.\n${YELLOW}Usage : ./mre.sh [.minecraft path] [path to jar executable]\n"
 		exit 1
 	fi
-	if [[ "${2}" == *".jar" ]]; then
-		EXTRACTING_MC=0
-		JAR_NAME=$(echo "${2}" | rev | cut -d '/' -f 1 | rev)
+	if [ "${#}" -eq 2 ]; then
+		JAR_CMD="${2}"
+	else
+		JAR_CMD="jar"
 	fi
 	mkdir -p "${MRE_DIR}/${MRE_OUTPUT_DIR}"
-	JAR_PATH="${2}"
 }
 
 function checkRequirements() {
-	if ! command -v "jar" &> /dev/null || ! command -v "jq" &> /dev/null; then
-		msg "${RED}You do not have all the required programs this script needs,\nplease install ${YELLOW}Java ${RED}and ${YELLOW}jq ${RED}before using this script.\nYou can install these programs with the following command :\n${YELLOW}sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq\n${RED}"
+	if { ! command -v "${JAR_CMD}" &> /dev/null && [ ! -x "${JAR_CMD}" ]; } || ! command -v "jq" &> /dev/null; then
+		msg "${RED}You do not have all the required programs this script needs,\nplease install ${YELLOW}Java (jar) ${RED}and ${YELLOW}jq ${RED}before using this script.\nYou can install these programs with the following command :\n${YELLOW}sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq\n${RED}"
 		exit 1
 	fi
 }
 
 function checkJarFile() {
-	JAR_FOLDERS=$(jar -tf "${JAR_PATH}" | grep "\." | grep -v 'META-INF\|.class' | cut -d '/' -f 1 | sort | uniq | grep -v "\.")
+	JAR_FOLDERS=$(${JAR_CMD} -tf "${JAR_PATH}" | grep "\." | grep -v 'META-INF\|.class' | cut -d '/' -f 1 | sort | uniq | grep -v "\.")
 	msg "${MAGENTA}${JAR_NAME} ${YELLOW}contains the following folders :\n${CYAN}0. ALL OF THEM\n"
 	INDEX=1
 	for LINE in ${JAR_FOLDERS}; do
@@ -79,14 +79,14 @@ function extractJar() {
 	fi
 	if [[ "${1}" == "ALL" ]]; then
 		for LINE in ${JAR_FOLDERS}; do
-			FILE_TOTAL=$(jar -tf "${JAR_PATH}" "${LINE}" | wc -l)
+			FILE_TOTAL=$(${JAR_CMD} -tf "${JAR_PATH}" "${LINE}" | wc -l)
 			msg "${CYAN}\nExtracting ${LINE} from ${MAGENTA}${JAR_NAME} ${CYAN}(this may take a while)...\n"
-			jar -xvf "${JAR_PATH}" "${LINE}" | awk -v var="${FILE_TOTAL}" 'BEGIN {ORS=" "} {print NR"/"var" files extracted\r"}'
+			${JAR_CMD} -xvf "${JAR_PATH}" "${LINE}" | awk -v var="${FILE_TOTAL}" 'BEGIN {ORS=" "} {print NR"/"var" files extracted\r"}'
 		done
 	else
-		FILE_TOTAL=$(jar -tf "${JAR_PATH}" "${1}" | wc -l)
+		FILE_TOTAL=$(${JAR_CMD} -tf "${JAR_PATH}" "${1}" | wc -l)
 		msg "${CYAN}\nExtracting ${1} from ${MAGENTA}${JAR_NAME} ${CYAN}(this may take a while)...\n"
-		jar -xvf "${JAR_PATH}" "${1}" | awk -v var="${FILE_TOTAL}" 'BEGIN {ORS=" "} {print NR"/"var" files extracted\r"}'
+		${JAR_CMD} -xvf "${JAR_PATH}" "${1}" | awk -v var="${FILE_TOTAL}" 'BEGIN {ORS=" "} {print NR"/"var" files extracted\r"}'
 	fi
 
 	rm -rf "META-INF"
@@ -201,11 +201,15 @@ function extractMCVersion() {
 
 msg "${CYAN}${BANNER}\n"
 
-checkArgs "${#}" "${1}"
+checkArgs "$@"
 checkRequirements
 if [ ${EXTRACTING_MC} -eq 1 ]; then
 	extractMCVersion "${1}"
 else
+	if [ ! -f "${JAR_PATH}" ]; then
+		msg "${RED}JAR file not found: ${JAR_PATH}\n"
+		exit 1
+	fi
 	checkJarFile
 fi
 
