@@ -1,6 +1,8 @@
-﻿using System;
+﻿using mre.view;
+using System;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace mre.model
 {
@@ -31,7 +33,13 @@ namespace mre.model
 			DirectoryInfo start = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
 			DirectoryInfo startX86 = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
 
-			searchResult = start.GetDirectories("Java").Concat(startX86.GetDirectories("Java")).ToArray();
+			var javaDirs = Enumerable.Empty<DirectoryInfo>();
+			if (start.Exists)
+				javaDirs = javaDirs.Concat(start.GetDirectories("Java", SearchOption.TopDirectoryOnly));
+			if (startX86.Exists)
+				javaDirs = javaDirs.Concat(startX86.GetDirectories("Java", SearchOption.TopDirectoryOnly));
+
+			searchResult = javaDirs.ToArray();
 
 			foreach (var dir in searchResult)
 			{
@@ -40,6 +48,12 @@ namespace mre.model
 				{
 					return foundFiles[0].FullName;
 				}
+			}
+			using (var dlg = new FrmJarPathPrompt())
+			{
+				var result = dlg.ShowDialog();
+				if (result == DialogResult.OK)
+					return dlg.SelectedPath;
 			}
 			return null;
 		}
