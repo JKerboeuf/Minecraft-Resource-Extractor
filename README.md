@@ -24,7 +24,7 @@ sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq
 
 - Check and install the requirements above if needed
 - Download the latest **Windows** release **[here](https://github.com/JKerboeuf/Minecraft-Resource-Extractor/releases/latest)**, it is found below "Assets" and should be named **"mre-for-windows.zip"**
-- Extract the folder inside of the donwloaded .zip file and launch `MinecraftResourceExtractor.exe`
+- Extract the folder inside of the downloaded .zip file and launch `MinecraftResourceExtractor.exe`
 - Follow the instructions given and extract whatever you want !
 - All extracted files go to the folder **"mre-output"** in the same folder as the .exe
 
@@ -32,7 +32,7 @@ sudo apt-get update && sudo apt-get install openjdk-11-jdk-headless jq
 
 - Check and install the requirements above if needed
 - Download the latest **Linux** release **[here](https://github.com/JKerboeuf/Minecraft-Resource-Extractor/releases/latest)**, it is found below "Assets" and should be named **"mre-for-linux.zip"**
-- Extract the content of the donwloaded .zip file and launch the `mre.sh` with the path to your **.minecraft** or to a **.jar file**, you can also add a path to your Java `jar` binary (the path should be to the binary file itself, not the directory it's in).
+- Extract the content of the downloaded .zip file and launch the `mre.sh` with the path to your **.minecraft** or to a **.jar file**, you can also add a path to your Java `jar` binary (the path should be to the binary file itself, not the directory it's in).
 - Follow the instructions given and extract whatever you want !
 - All extracted files go to the folder **"mre-output"** in the same folder as the script
 
